@@ -18,6 +18,14 @@ type Address struct {
 	State string
 }
 
+func (o User) Print() {
+	fmt.Printf("Name: %s\nAge:%d\nAddress.City:%s\n", o.Name, o.Age, o.Address)
+}
+
+func (o Employee) Print() {
+	fmt.Printf("Name: %s\nAge:%d\nAddress.City:%s\n", o.Name, o.Age, o.Address)
+}
+
 func handlerStructs() {
 	user := User{
 		Name: "John Doe",
@@ -66,4 +74,8 @@ func handlerStructs() {
 	employee.Address.City = "Rio de Janeiro"
 
 	fmt.Println(employee.Name, employee.Age, employee.City, employee.State)
+
+	// Métodos
+	user2.Print()
+	employee.Print()
 }
