@@ -84,4 +84,30 @@ func main() {
 
 	fmt.Println("\nSlice 1: ", slice[:2])
 	fmt.Println("\nSlice 1: ", slice[1:])
+
+	// Maps
+
+	m := map[string]int{
+		"key":  1,
+		"key2": 2,
+	}
+
+	fmt.Println("\nMap: ", m)
+
+	m["key"] = 10
+	m["key_2"] = 20
+
+	fmt.Println("\nMap: ", m)
+	fmt.Println("\nMap: ", len(m))
+	fmt.Println("\nMap key: ", m["key"])
+
+	nm := make(map[string]int)
+
+	nm["key"] = 10
+	nm["key_2"] = 20
+
+	fmt.Println("\nMap: ", nm)
+	for k, v := range nm {
+		fmt.Printf("Key: %s, Value: %d\n", k, v)
+	}
 }
