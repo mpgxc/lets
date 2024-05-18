@@ -110,4 +110,31 @@ func main() {
 	for k, v := range nm {
 		fmt.Printf("Key: %s, Value: %d\n", k, v)
 	}
+
+	// Funções
+
+	fmt.Println("\nFunções")
+	fmt.Println("Soma: ", soma(1, 2))
+
+	result, err := divide(1, 0)
+
+	fmt.Println("Divide: ", result, err)
+
+	result2, err := divide(1, 2)
+
+	fmt.Println("Divide: ", result2, err)
+}
+
+func soma(a, b int) int {
+	return a + b
+}
+
+func divide(a, b int) (float64, error) {
+	result := float64(a) / float64(b)
+
+	if b == 0 {
+		return 0, fmt.Errorf("Error: Division by zero")
+	}
+
+	return result, nil
 }
