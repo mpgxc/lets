@@ -125,6 +125,21 @@ func main() {
 	result2, err := divide(1, 2)
 
 	fmt.Println("Divide: ", result2, err)
+
+	// Closures
+
+	fmt.Println("\nClosures")
+
+	closure1 := closure()
+
+	fmt.Println("Closure: ", closure1())
+	fmt.Println("Closure: ", closure1())
+
+	closure2 := func() int {
+		return closure1() + 2
+	}
+
+	fmt.Println("Closure: ", closure2())
 }
 
 func soma(numbers ...int) int {
@@ -173,4 +188,14 @@ func soma3(numbers ...int) {
 	}
 
 	fmt.Println("Soma3: ", sum2)
+}
+
+func closure() func() int {
+	i := 0
+
+	return func() int {
+		i += 1
+
+		return i
+	}
 }
