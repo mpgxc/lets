@@ -26,6 +26,14 @@ func (o Employee) Print() {
 	fmt.Printf("Name: %s\nAge:%d\nAddress.City:%s\n", o.Name, o.Age, o.Address)
 }
 
+type PrintInterface interface {
+	Print()
+}
+
+func AplicaPrint(o PrintInterface) {
+	o.Print()
+}
+
 func handlerStructs() {
 	user := User{
 		Name: "John Doe",
@@ -78,4 +86,7 @@ func handlerStructs() {
 	// Métodos
 	user2.Print()
 	employee.Print()
+
+	AplicaPrint(user2)
+	AplicaPrint(employee)
 }
