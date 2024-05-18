@@ -8,6 +8,11 @@ type User struct {
 	Address Address
 }
 
+type Employee struct {
+	User
+	Address
+}
+
 type Address struct {
 	City  string
 	State string
@@ -45,4 +50,20 @@ func handlerStructs() {
 	}}
 
 	fmt.Println(user2.Name, user2.Age, user2.Address.City, user2.Address.State)
+
+	employee := Employee{
+		User: User{
+			Name: "JaneDoe",
+			Age:  30,
+		},
+		Address: Address{
+			City:  "Oeiras",
+			State: "Piauí",
+		},
+	}
+
+	user2.Address.City = "Rio de Janeiro"
+	employee.Address.City = "Rio de Janeiro"
+
+	fmt.Println(employee.Name, employee.Age, employee.City, employee.State)
 }
