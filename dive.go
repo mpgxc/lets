@@ -143,6 +143,10 @@ func main() {
 
 	// Structs
 	handlerStructs()
+
+	// Pointers
+
+	handlerPointer()
 }
 
 func soma(numbers ...int) int {
