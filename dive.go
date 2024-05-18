@@ -114,7 +114,9 @@ func main() {
 	// Funções
 
 	fmt.Println("\nFunções")
-	fmt.Println("Soma: ", soma(1, 2))
+	fmt.Println("Soma: ", soma(1, 2, 3, 4, 5))
+	fmt.Println("Soma: ", soma([]int{1, 2, 3, 4, 5}...))
+	fmt.Println("Soma2: ", soma2([]int{1, 2, 3, 4, 5}))
 
 	result, err := divide(1, 0)
 
@@ -125,8 +127,24 @@ func main() {
 	fmt.Println("Divide: ", result2, err)
 }
 
-func soma(a, b int) int {
-	return a + b
+func soma(numbers ...int) int {
+	result := 0
+
+	for _, v := range numbers {
+		result += v
+	}
+
+	return result
+}
+
+func soma2(numbers []int) int {
+	result := 0
+
+	for _, v := range numbers {
+		result += v
+	}
+
+	return result
 }
 
 func divide(a, b int) (float64, error) {
@@ -137,4 +155,22 @@ func divide(a, b int) (float64, error) {
 	}
 
 	return result, nil
+}
+
+func soma3(numbers ...int) {
+	sum1 := 0
+
+	for i := 0; i < len(numbers); i++ {
+		sum1 += numbers[i]
+	}
+
+	fmt.Println("Soma3: ", sum1)
+
+	sum2 := 0
+
+	for sum2 < len(numbers) {
+		sum2 += numbers[sum2]
+	}
+
+	fmt.Println("Soma3: ", sum2)
 }
