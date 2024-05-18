@@ -140,6 +140,9 @@ func main() {
 	}
 
 	fmt.Println("Closure: ", closure2())
+
+	// Structs
+	handlerStructs()
 }
 
 func soma(numbers ...int) int {
