@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 type Pessoa struct {
 	Nome  string
@@ -33,4 +36,17 @@ func main() {
 	p.Falar()
 
 	deferStack()
+
+	fmt.Println(wordCount("Hello, world! Hello, world!"))
+}
+
+func wordCount(s string) map[string]int {
+	words := strings.Fields(s)
+	m := make(map[string]int)
+
+	for _, word := range words {
+		m[word]++
+	}
+
+	return m
 }
