@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strings"
 )
 
 const (
@@ -159,6 +160,20 @@ func main() {
 	})
 
 	fmt.Println("Doubled: ", doubled)
+
+	names := []string{"John", "Doe", "Jane", "Doe"}
+
+	here := Filter(names, func(s string) bool {
+		return strings.ContainsRune(s, 'o')
+	})
+
+	fmt.Println("Here: ", here)
+
+	upper := Map(names, func(s string) string {
+		return strings.ToUpper(s)
+	})
+
+	fmt.Println("Upper: ", upper)
 
 	filtered := Filter(numbers, func(n int) bool {
 		return n%2 == 0
