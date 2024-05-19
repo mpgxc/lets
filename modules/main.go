@@ -5,6 +5,8 @@ import (
 	"strings"
 
 	"mpgxc/hofs"
+
+	"github.com/google/uuid"
 )
 
 func main() {
@@ -50,4 +52,7 @@ func main() {
 		return n%2 == 0
 	})
 	fmt.Println("Every number is even:", everyEven)
+
+	id := uuid.New()
+	fmt.Println("UUID:", id)
 }
