@@ -151,6 +151,44 @@ func main() {
 	// Pointers
 
 	handlerPointer()
+
+	numbers := []int{1, 2, 3, 4, 5}
+
+	doubled := Map(numbers, func(n int) int {
+		return n * 2
+	})
+
+	fmt.Println("Doubled: ", doubled)
+
+	filtered := Filter(numbers, func(n int) bool {
+		return n%2 == 0
+	})
+
+	fmt.Println("Filtered: ", filtered)
+
+	exists := Some(numbers, func(n int) bool {
+		return n == 3
+	})
+
+	fmt.Println("Exists: ", exists)
+
+	soma := Reduce(numbers, 0, func(acc, n int) int {
+		return acc + n
+	})
+
+	fmt.Println("Soma: ", soma)
+
+	found := Find(numbers, func(n int) bool {
+		return n == 3
+	})
+
+	fmt.Println("Found: ", found)
+
+	everyEven := Every(numbers, func(n int) bool {
+		return n%2 == 0
+	})
+
+	fmt.Println("EveryEven: ", everyEven)
 }
 
 func somaFunc(numbers ...int) int {
