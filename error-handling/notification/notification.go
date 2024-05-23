@@ -19,6 +19,10 @@ func NewNotification() *Notification {
 	return &Notification{Errors: []Error{}}
 }
 
+func (n *Notification) AddNotification(e *Notification) {
+	n.Errors = append(n.Errors, e.Errors...)
+}
+
 func (n *Notification) AddError(name, message string, context interface{}) {
 	n.Errors = append(n.Errors, Error{
 		Name:      name,

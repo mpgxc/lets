@@ -26,6 +26,10 @@ func (r Result[T]) Err() error {
 	return r.err
 }
 
+func (r Result[T]) Ok() bool {
+	return r.ok
+}
+
 func Ok[T any](value T) Result[T] {
 	return Result[T]{ok: true, value: value}
 }

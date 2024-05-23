@@ -29,27 +29,26 @@ func validatePessoa(pessoa Pessoa) *Notification {
 func main() {
 	pessoa := Pessoa{Nome: "João", Idade: 16}
 
-	notification := validatePessoa(pessoa)
+	notification := NewNotification()
+
+	notification.AddNotification(validatePessoa(pessoa))
+
+	result := Result[int](divide(10, 0))
+
+	if !result.Ok() {
+		notification.AddError("DivisaoInvalida", result.Err().Error(), nil)
+	}
 
 	if notification.HasErrors() {
+
 		fmt.Println("Erros de validação:")
+
 		for _, error := range notification.GetErrors() {
 			fmt.Println("Nome:", error.Name)
 			fmt.Println("Mensagem:", error.Message)
 			fmt.Println("Timestamp:", error.Timestamp)
 			fmt.Println("Contexto:", error.Context)
 		}
-	} else {
-		fmt.Println("Pessoa validada com sucesso!")
-	}
-
-	result := Result[int](divide(10, 0))
-
-	switch result {
-	case Ok[int](result.Value()):
-		fmt.Println("Resultado da divisão:", result.Value())
-	case Err[int](result.Err()):
-		fmt.Println("Erro:", result.Err())
 	}
 }
 
